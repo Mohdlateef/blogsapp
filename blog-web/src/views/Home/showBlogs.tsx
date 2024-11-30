@@ -28,7 +28,7 @@ export default function ShowBlogs() {
     <div className="h-1/2">
       {isPending && <h1>Loading....</h1>}
       {isError && <h1>error:{error.message}</h1>}
-      {data?.map((ele, index) => (
+      {data?.map((ele:any, index:number) => (
         <div
           key={index}
           className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg  my-4 w-screen"

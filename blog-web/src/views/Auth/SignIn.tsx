@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { signIn } from "../../apiServices/auth/authApi";
 // import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import userContext from "../../globalvaribles/context/userIdContext";
+
+
+
 
 const SignIn = () => {
+
+
   const [loginId, setLoginId] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigate = useNavigate();
+  const user:any=useContext(userContext)
   const handleSubmit = () => {
     if (!loginId || !password) {
-      alert("Please fill in both fields");
+      alert("empty fields");
       return;
     }
 
@@ -19,10 +26,13 @@ const SignIn = () => {
   const { mutate } = useMutation({
     mutationFn: signIn, // Call the signUp function (which wraps the axios call)
     onSuccess: (apiData:any) => {
-      console.log(apiData);
-      if (apiData.status === 201) {
+      // console.log(apiData.data._id);
+      console.log(apiData.data.userDb._id,30);
+
+      if (apiData.status === 200) {
         alert(apiData.message);
-        navigate("/signIn");
+         user.setUserId(apiData.data.userDb._id)
+        navigate("/");
       } else alert(apiData.message);
     },
     onError: (error:any) => {

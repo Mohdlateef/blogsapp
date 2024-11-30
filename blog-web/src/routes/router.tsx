@@ -1,12 +1,13 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../views/Home/home";
-import Profile from "../views/Profile/Profile";
 
 import MainLayout from "../layouts/MainLayout";
 import { SingUp } from "../views/Auth/SignUp";
 import SignIn from "../views/Auth/SignIn";
-
+import { MyBlogs } from "../views/SideBar/MyBlogs/MyBlogs";
+import GetProfile from "../views/SideBar/Profile/GetProfile";
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Profile",
-        element: <Profile />,
+        path: "/profile",
+        element:<GetProfile/>
+      },
+      {
+        path: "/myBlogs",
+        element: <MyBlogs />
       },
     ],
   },

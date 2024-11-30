@@ -63,7 +63,7 @@ export const SingUp = () => {
 
         <div>
           <label
-            htmlFor="username"
+            For="username"
             className="block text-sm font-medium text-gray-700"
           >
             Username
