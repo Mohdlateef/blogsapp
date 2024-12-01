@@ -2,6 +2,8 @@ import React,{useContext, useRef} from "react";
 import { createBlog } from "../../apiServices/blogs/createBlog";
 import userContext from "../../globalvaribles/context/userIdContext";
 import { useMutation } from "@tanstack/react-query";
+import blogsQuery from "../../apiServices/blogs/blogsQuery";
+import { BlogsQuery } from "../../apiServices";
 
 export default function CreateBlogs() {
   const [blogTitle, setBlogTitile] = React.useState <any>("");
@@ -16,9 +18,7 @@ export default function CreateBlogs() {
  
   
     
-const createblog=useMutation({
-  mutationFn:()=>createBlog(blogTitle,blogInput,_id)
-})
+const createblog=BlogsQuery.useMutationCreateBlog(blogTitle,blogInput,_id)
 
   return (
     <div className="bg-gray-800 w-full rounded-lg">

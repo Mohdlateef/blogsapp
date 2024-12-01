@@ -1,6 +1,6 @@
 import React ,{useState}from "react";
-import { readBlogs } from "../../apiServices/blogs/readBlogs";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+// import { readBlogs } from "../../apiServices/blogs/readBlogs";
+import { BlogsQuery } from "../../apiServices";
 
 export default function ShowBlogs() {
 
@@ -14,11 +14,7 @@ export default function ShowBlogs() {
   };
 
 
-  const { data, isPending, isError, error }: Data = useQuery({
-    queryKey: ["blogs", page],
-    queryFn: () => readBlogs(page),
-    placeholderData: keepPreviousData,
-  });
+  const { data, isPending, isError, error }: Data =BlogsQuery.useQueryreadBlogs(page)
   // console.log(data, 24);
 
 
