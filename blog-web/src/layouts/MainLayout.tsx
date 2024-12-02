@@ -25,7 +25,7 @@ const navigate=useNavigate();
 },  [islogin]);
 return (
 islogin?
-      <div className="flex flex-col  ">
+      <div className="flex flex-col overflow-hidden h-[100vh] ">
         <Navbar />
         <div className="flex  h-[90vh]">
           <Sidebar />

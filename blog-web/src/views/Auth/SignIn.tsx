@@ -3,7 +3,8 @@ import { signIn } from "../../apiServices/auth/authApi";
 // import { NavLink } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import userContext from "../../globalvaribles/context/userIdContext";
+// import userContext from "../../globalvaribles/context/userIdContext";
+import userContext from "../../context/userIdContext";
 
 
 

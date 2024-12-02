@@ -4,7 +4,6 @@ import axios from "axios";
 import { User } from "./types/authInterfaces";
 export const signUp = async ({ name, userName, email, password }: User) => {
   try {
-    console.log("test");
     const res = await axios.post(`${baseURL}/auth/register`, {
       name: name,
       username: userName,
@@ -41,19 +40,21 @@ axios.defaults.withCredentails=true;
 
 
 
-    // console.log(res.data,39)
+    console.log(res.data,39)
 
 
 
     if(res.data.status===200)
     {
-    console.log(res.data.token,39) 
+    console.log(res.data.data.userDb.username,39) 
 
     
     //store token in local
     localStorage.setItem("isLogin",JSON.stringify({
       islogin:true,
       token:res.data.token,
+     username:res.data.data.userDb.username,
+     userId:res.data.data.userDb._id
     }))
 
 

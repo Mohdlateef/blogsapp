@@ -1,6 +1,7 @@
 import { keepPreviousData ,useMutation, useQueryClient ,useQuery} from "@tanstack/react-query";
 import { useContext ,useState} from "react";
-import userContext from "../../../globalvaribles/context/userIdContext";
+// import userContext from "../../../globalvaribles/context/userIdContext";
+import userContext from "../../../context/userIdContext";
 import { MyBlogsAPI, MyBlogsQuery } from "../..";
 
 
@@ -42,7 +43,7 @@ const useMutationDeleteMyBlog=(pageNumber:Number)=>{
     onSuccess:(data:any,id:string)=>{
       queryClient.setQueryData(["myBlogs",pageNumber],(oldMyBlogs:any)=>{
         const newMyBlogs:any=oldMyBlogs?.filter((blog:any)=>blog._id!==id)
-        console.log(newMyBlogs)
+        // console.log(newMyBlogs)
         return newMyBlogs
       })
     }
@@ -51,7 +52,7 @@ const useMutationDeleteMyBlog=(pageNumber:Number)=>{
     
 
 
-const useMutationUpdateMyBlog=(text:string,pageNumber:Number)=>{
+const useMutationUpdateMyBlog=(text:string)=>{
   const queryClient=useQueryClient();
   
   return useMutation({

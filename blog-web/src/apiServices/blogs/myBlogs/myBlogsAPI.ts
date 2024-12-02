@@ -18,6 +18,10 @@ const myblogs = async (userId: string, page: Number) => {
   if (res.data.status === 200) {
     return res.data.data;
   }
+  if(res.data.status===204)
+  {
+    return res.data.message
+  }
 };
 
 

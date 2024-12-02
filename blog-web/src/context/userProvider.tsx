@@ -12,7 +12,8 @@ const UserProvider = (props: any) => {
 
   const storedUserId = localStorage.getItem('userId');
   const [userId, setUserId] = useState<any>(storedUserId ? (storedUserId) : '');
-console.log(storedUserId,"15");
+
+console.log(userId,"15");
   useEffect(() => {
   
       localStorage.setItem('userId', userId);
