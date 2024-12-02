@@ -16,7 +16,7 @@ const readBlogs = async (page: any) => {
 };
 
 const createBlog = async (blogTitle: any, blogInput: any, userId: any) => {
-  //   console.log(blogTitle, blogInput, userId);
+    console.log(blogTitle, blogInput, userId);
   if (!blogInput) {
     alert("please enter text");
     return;
