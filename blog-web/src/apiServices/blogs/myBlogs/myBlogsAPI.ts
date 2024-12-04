@@ -1,11 +1,8 @@
-
 import axios from "axios";
 
 const baseURL = "http://localhost:8000";
 
 const myblogs = async (userId: string, page: Number) => {
-  console.log("test");
-
   const params: any = {
     userId: userId,
   };
@@ -18,21 +15,14 @@ const myblogs = async (userId: string, page: Number) => {
   if (res.data.status === 200) {
     return res.data.data;
   }
-  if(res.data.status===204)
-  {
-    return res.data.message
+  if (res.data.status === 204) {
+    return res.data.message;
   }
 };
 
-
-
-
-
 const deleteMyBlog = async (id: string) => {
-  console.log(id, 8);
-
   try {
-    const res = await axios.post(`${baseURL}/blog/deleteblog`, {
+    const res = await axios.post(`${baseURL}/blog/delete-blog`, {
       blogId: id,
     });
     return res.data;
@@ -41,11 +31,6 @@ const deleteMyBlog = async (id: string) => {
   }
 };
 
-
-
-
-
-
 const updateBlog = async (text: string, blogId: string) => {
   const res = await axios.post(`${baseURL}/blog/editblog`, {
     newText: text,
@@ -53,11 +38,6 @@ const updateBlog = async (text: string, blogId: string) => {
   });
   return res.data;
 };
-
-
-
-
-
 
 export default {
   myblogs,
