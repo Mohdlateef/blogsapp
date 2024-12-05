@@ -1,6 +1,5 @@
 import { keepPreviousData, useMutation, useQuery,useQueryClient } from "@tanstack/react-query"
 import { BlogsAPI } from ".."
-import blogsAPI from "./blogsAPI";
 // import { data } from "react-router-dom";
 
 
@@ -24,7 +23,7 @@ const useMutationCreateBlog=(blogTitle:String,blogInput:string,_id:any,pageNumbe
     return useMutation({
         mutationFn:()=>BlogsAPI.createBlog(blogTitle,blogInput,_id),
         onSuccess:(data:any)=>{
-            queryClient.invalidateQueries('blogs');
+            queryClient.invalidateQueries("blogs");
               
            
         }

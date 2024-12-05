@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { API } from "..";
 const baseURL = "http://localhost:8000";
 
 const readBlogs = async (page: any) => {
@@ -18,23 +18,13 @@ const createBlog = async (blogTitle: any, blogInput: any, userId: any) => {
     alert("please enter text");
     return;
   }
-  axios.defaults.withCredentails = true;
 
   try {
-    const res = await axios.post(
-      `${baseURL}/blog/create-blog`,
-      {
-        title: blogTitle,
-        textbody: blogInput,
-        userId: userId,
-      },
-      {
-        headers: {
-          auth: JSON.parse(localStorage.getItem("isLogin")).token,
-          email: "test5@gmail.com ",
-        },
-      }
-    );
+    const res = await API.post(`/blog/create-blog`, {
+      title: blogTitle,
+      textbody: blogInput,
+      userId: userId,
+    });
   } catch (error) {
     console.log(error);
   }
